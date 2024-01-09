@@ -63,26 +63,30 @@ class Main {
         }
 
         int result;
-        switch (operator) {
-            case "+":
-                result = num1 + num2;
-                break;
-            case "-":
-                result = num1 - num2;
-                break;
-            case "*":
-                result = num1 * num2;
-                break;
-            case "/":
-                if (num2 == 0) {
-                    // Если делитель равен нулю, выводим правило
-                    throw new Exception("Делить на ноль нельзя");
-                }
-                result = num1 / num2;
-                break;
-            default:
-                // Если оператор не распознан, выводим ограничение по знакам
-                throw new Exception("Неправильный знак! Доступные: +, -, /, * .");
+        if (num1 >0 & num2>0 & num1 <=10 & num2 <= 10) {
+            switch (operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    if (num2 == 0) {
+                        // Если делитель равен нулю, выводим правило
+                        throw new Exception("Делить на ноль нельзя");
+                    }
+                    result = num1 / num2;
+                    break;
+                default:
+                    // Если оператор не распознан, выводим ограничение по знакам
+                    throw new Exception("Неправильный знак! Доступные: +, -, /, * .");
+            }
+        } else {
+            throw new Exception("Введите число(-а) от 1 до 10! (включительно)");
         }
 
         if (isRomanNumeral) {
@@ -104,7 +108,7 @@ class Main {
         for (int i = 0; i < values.length; i++) {
             while (num >= values[i]) {
                 romanNumeral.append(symbols[i]);
-                num -= values[i]; 
+                num -= values[i];
             }
         }
 
